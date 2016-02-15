@@ -1,0 +1,11 @@
+{
+  "name": "papyrus-ui",
+  "theme": "ui",
+  "version": "0.51.1",
+  "description": "A soft dark UI theme for Atom",
+  "license": "MIT",
+  "repository": "https://github.com/PrometheusRuse/atom-papyrus-ui.git",
+  "engines": {
+    "atom": ">0.40.0"
+  }
+}
