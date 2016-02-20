@@ -17,7 +17,7 @@
     position: relative;
     overflow-y: hidden;
     overflow-x: auto;
-    transition: -webkit-filter 250ms @md-timing-function;
+    transition: -webkit-filter 250ms @timing-function;
     z-index: 2000;
 
     .tab {
@@ -29,7 +29,7 @@
         min-width: 7rem;
         max-width: 12rem;
         color: @text-color;
-        transition: min-width 250ms @md-timing-function;
+        transition: min-width 250ms @timing-function;
 
         &::before {
             position: absolute;
@@ -39,7 +39,7 @@
             height: 0.125rem;
             width: 100%;
             transform: scaleX(0) translateX(50%);
-            transition: transform 250ms @md-timing-function, opacity 250ms @md-timing-function;
+            transition: transform 250ms @timing-function, opacity 250ms @timing-function;
             opacity: 0;
             background-color: @base-color;
             z-index: 2000;
@@ -53,7 +53,7 @@
             }
             .ink {
                 display: inline-block;
-                -webkit-animation: ripple 500ms @md-timing-function;
+                -webkit-animation: ripple 500ms @timing-function;
                 -webkit-animation-fill-mode: forwards;
             }
         }
@@ -91,7 +91,7 @@
             top: 1rem;
             padding: 0;
             cursor: pointer;
-            transition: transform 250ms @md-timing-function;
+            transition: transform 250ms @timing-function;
             transform: scale(0);
 
             &::before {
@@ -102,7 +102,7 @@
         .title {
             position: relative;
             pointer-events: none;
-            transition: padding 250ms @md-timing-function;
+            transition: padding 250ms @timing-function;
             -webkit-mask-image: linear-gradient(to right, rgba(255,255,255,1) 70%,rgba(255,255,255,0) 90%);
 
             &.icon::before {
@@ -119,16 +119,16 @@
                 border-radius: 50%;
             }
             &.status-modified::after {
-                background-color: @md-amber;
+                background-color: @amber;
             }
             &.status-added::after {
-                background-color: @md-light-green;
+                background-color: @light-green;
             }
             &.status-removed::after {
-                background-color: @md-red;
+                background-color: @red;
             }
             &.status-renamed::after {
-                background-color: @md-blue;
+                background-color: @blue;
             }
         }
         &:hover {

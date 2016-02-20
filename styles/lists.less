@@ -12,16 +12,16 @@
             }
         }
         &.status-modified:not(.selected) {
-            color: lighten(desaturate(@md-amber, 25%), 5%);
+            color: lighten(desaturate(@amber, 25%), 5%);
         }
         &.status-added:not(.selected) {
-            color: @md-light-green;
+            color: @light-green;
         }
         &.status-renamed:not(.selected) {
-            color: @md-blue;
+            color: @blue;
         }
         &.status-removed:not(.selected) {
-            color: @md-red;
+            color: @red;
         }
         .name {
             position: relative;
@@ -30,16 +30,16 @@
     }
     li.list-nested-item {
         &.status-modified:not(.selected) > .list-item {
-            color: lighten(desaturate(@md-amber, 25%), 5%);
+            color: lighten(desaturate(@amber, 25%), 5%);
         }
         &.status-added:not(.selected) > .list-item {
-            color: @md-light-green;
+            color: @light-green;
         }
         &.status-renamed:not(.selected) > .list-item {
-            color: @md-blue;
+            color: @blue;
         }
         &.status-removed:not(.selected) > .list-item {
-            color: @md-red;
+            color: @red;
         }
     }
     .selected::before {
