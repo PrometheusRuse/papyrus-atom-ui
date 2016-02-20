@@ -1,50 +1,65 @@
-@import "ui-variables";
-
 .tooltip {
-  @tip-background-color: #fff;
-  @tip-text-color: #333;
-  white-space: nowrap;
+    @tip-background-color: @md-grey-700;
+    @tip-text-color: #FFF;
+    transition: opacity 500ms @md-timing-function, transform 500ms @md-timing-function;
+    z-index: 9999;
 
-  .keystroke {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    color: #777;
-    padding-left: 2px;
-  }
+    .no-animations & {
+        transition: none;
+    }
+    .tooltip-arrow {
+        display: none;
+    }
+    .keystroke {
+        color: fade(@tip-text-color, 30%);
+        padding-left: 0.125rem;
+    }
+    .tooltip-inner {
+        line-height: 1.5rem;
+        padding: 0 0.5rem;
+        border-radius: @component-border-radius;
+        background-color: @tip-background-color;
+        color: @tip-text-color;
+        max-width: 20rem;
+        word-wrap: break-word;
+        word-break: keep-all;
 
-  &.in { opacity: 1; }
+        span {
+            color: fade(@tip-text-color, 80%);
+        }
+    }
+    &.top, &.bottom {
+        margin: auto;
+        padding: 0.8rem 0;
+    }
+    &.top {
+        margin-bottom: 0.8rem;
+        transform: translateY(1rem);
 
-  .tooltip-inner {
-    line-height: 19px;
-    border-radius: @component-border-radius;
-    background-color: @tip-background-color;
-    color: @tip-text-color;
-    white-space: nowrap;
-    max-width: none;
-  }
+        &.in {
+            transform: translateY(0);
+        }
+    }
+    &.bottom {
+        margin-top: 0;
+        transform: translateY(-1rem);
 
-  &.top .tooltip-arrow {
-    border-top-color: @tip-background-color;
-  }
-  &.top-left .tooltip-arrow {
-    border-top-color: @tip-background-color;
-  }
-  &.top-right .tooltip-arrow {
-    border-top-color: @tip-background-color;
-  }
-  &.right .tooltip-arrow {
-    border-right-color: @tip-background-color;
-  }
-  &.left .tooltip-arrow {
-    border-left-color: @tip-background-color;
-  }
-  &.bottom .tooltip-arrow {
-    border-bottom-color: @tip-background-color;
-  }
-  &.bottom-left .tooltip-arrow {
-    border-bottom-color: @tip-background-color;
-  }
-  &.bottom-right .tooltip-arrow {
-    border-bottom-color: @tip-background-color;
-  }
+        &.in {
+            transform: translateY(0);
+        }
+    }
+    &.right {
+        transform: translateX(-1rem);
+
+        &.in {
+            transform: translateX(0);
+        }
+    }
+    &.left {
+        transform: translateX(1rem);
+
+        &.in {
+            transform: translateX(0);
+        }
+    }
 }
