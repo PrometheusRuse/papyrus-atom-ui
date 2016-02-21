@@ -30,10 +30,10 @@ linter-bottom-tab {
     margin-left: 0.25rem;
 
     &.status-success {
-        color: @md-green;
+        color: @green;
     }
     &.status-error {
-        color: @md-red;
+        color: @red;
     }
     &:first-child {
         margin-left: 0;
@@ -79,10 +79,10 @@ atom-text-editor, atom-text-editor::shadow {
     .decoration.linter-row {
         .linter-gutter.linter-highlight {
             &.warning {
-                background-color: @md-amber;
+                background-color: @amber;
             }
             &.error {
-                background-color: @md-red;
+                background-color: @red;
             }
         }
     }
@@ -107,13 +107,13 @@ linter-new-panel, linter-default-panel {
         }
     }
     .status-success {
-        color: @md-green;
+        color: @green;
     }
     .status-error {
-        color: @md-red;
+        color: @red;
     }
     .status-warning {
-        color: @md-amber;
+        color: @amber;
     }
     .panel-contrast & {
         background: darken(@app-background-color, 2%);
