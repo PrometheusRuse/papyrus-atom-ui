@@ -27,6 +27,13 @@
 @accent-text-color: lighten(@base-color, 60%);
 @base-color: #337bab;
 
+//Variables
+@ignored: fade(@syntax-text, 50%);
+@added: @green;
+@renamed: @deep-orange;
+@modified: @deep-purple;
+@removed: @red;
+
 // Syntax-variables-less-sheet
 @syntax-text: @very-light-grey;
 @syntax-cursor: white;
@@ -45,10 +52,10 @@
 @gutter-background: @dark-grey;
 @gutter-background-selected: @grey;
 
-@gutter-renamed: @deep-orange;
-@gutter-added: @green;
-@gutter-modified: @deep-purple;
-@gutter-removed: @red;
+@gutter-renamed: @renamed;
+@gutter-added: @added;
+@gutter-modified: @modified;
+@gutter-removed: @removed;
 
 // Accent Colors
 @background-color-selected: @blue;
@@ -65,20 +72,20 @@
 @text-color-highlight: fade(@text-color, 60%);
 @text-color-selected: @text-color-highlight;
 
-@text-color-info: @deep-orange;
-@text-color-success: @green;
-@text-color-warning: @deep-purple;
-@text-color-error: @red;
+@text-color-info: @renamed;
+@text-color-success: @added;
+@text-color-warning: @modified;
+@text-color-error: @removed;
 
-@text-color-ignored: fade(@text-color, 50%);
-@text-color-added: lighten(@text-color-success, 10%);
-@text-color-renamed: lighten(@text-color-info, 10%);
-@text-color-modified: @text-color-warning;
-@text-color-removed: @text-color-error;
+@text-color-ignored: @ignored;
+@text-color-added: @added;
+@text-color-renamed: @renamed;
+@text-color-modified: @modified;
+@text-color-removed: @removed;
 
 @background-color-info: lighten(@text-color-info, 25%);
 @background-color-success: lighten(@text-color-success, 25%);
-@background-color-warning: lighten(@text-color-warning, 10%);
+@background-color-warning: lighten(@text-color-warning, 25%);
 @background-color-error: lighten(@text-color-error, 25%);
 @background-color-highlight: fade(@base-color, 10%);
 
@@ -138,10 +145,10 @@
 @tab-height: 26px;
 
 // Other
-@font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+@font-family: 'Cambria', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
 
 :root {
-    font-size: 16px;
+    font-size: 24px;
 }
 
 @import "custom";
