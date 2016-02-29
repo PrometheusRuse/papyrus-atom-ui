@@ -1,19 +1,12 @@
 .tool-bar {
-    position: relative;
     border: none;
     z-index: 5000;
 
-    &.tool-bar-vertical {
-        width: 3rem;
-
-        .tool-bar-spacer {
-            margin: 0.5rem 0;
-            border-bottom: none;
-        }
+    &.tool-bar-vertical .tool-bar-spacer {
+        margin: 0.5rem 0;
+        border-bottom: none;
     }
     &.tool-bar-horizontal {
-        height: 3rem;
-
         &.tool-bar-top {
             background: @app-background-color;
         }
@@ -32,9 +25,6 @@
     &.tool-bar-horizontal, &.tool-bar-vertical {
         .tool-bar-spacer {
             border-color: fade(@text-color, 10%);
-        }
-        .tool-bar-btn:first-child {
-            transition: -webkit-filter 250ms @timing-function;
         }
     }
     &.tool-bar-16px, &.tool-bar-24px, &.tool-bar-32px {
@@ -81,7 +71,7 @@
                     bottom: 0.5rem;
                     content: "\f05f";
                     font-family: 'Octicons Regular';
-                    color: @app-background-color;
+                    color: #FFF;
                     display: inline-block;
                     line-height: 1;
                     -webkit-font-smoothing: antialiased;
@@ -90,7 +80,7 @@
                     text-align: center;
                     width: 0.75rem;
                     height: 0.75rem;
-                    background: @text-color-error;
+                    background: @red;
                     border-radius: 50%;
                     border: 0.125rem solid @text-color-error;
                     box-sizing: content-box;
@@ -100,9 +90,6 @@
                     color: @text-color;
                 }
             }
-        }
-        &.tool-bar-vertical.gutter-bottom::after {
-            display: none;
         }
     }
     .panel-shadows & {
@@ -157,12 +144,6 @@
         }
     }
     .compact-tab-bar & {
-        &.tool-bar-vertical {
-            width: 2.5rem;
-        }
-        &.tool-bar-horizontal {
-            height: 2.5rem;
-        }
         &.tool-bar-16px, &.tool-bar-24px, &.tool-bar-32px {
             .tool-bar-btn {
                 width: 2.5rem;
@@ -171,17 +152,21 @@
                 &::before {
                     line-height: 2.5rem;
                 }
+                &.tool-bar-mode-dev::after {
+                    right: 0.25rem;
+                    bottom: 0.25rem;
+                }
+            }
+            &.tool-bar-horizontal {
+                .tool-bar-spacer {
+                    height: 1.5rem;
+                }
+            }
+            &.tool-bar-vertical {
+                .tool-bar-spacer {
+                    width: 1.5rem;
+                }
             }
         }
-    }
-}
-.is-blurred .tinted-tab-bar .tool-bar {
-    &.tool-bar-vertical {
-        .tool-bar-btn:first-child {
-            -webkit-filter: grayscale(0.65) brightness(1.25);
-        }
-    }
-    &.tool-bar-top {
-        -webkit-filter: grayscale(0.65) brightness(1.25);
     }
 }

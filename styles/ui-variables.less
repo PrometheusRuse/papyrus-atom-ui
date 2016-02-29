@@ -1,38 +1,92 @@
-@import "syntax-variables";
+// Key Colors
+@red: #cb4949;
+@pink: #e1a9a9;
+@purple: #a7abcb;
+@deep-purple: #946ac6;
+@indigo: #b5b7cc;
+@light-blue: #83b7da;
+@blue: #278ed1;
+@cyan: #2bc9e2;
+@teal: #22e0c5;
+@green: #27d16b;
+@light-green: #6fd697;
+@lime: #7fbe5d;
+@yellow: #f3ea9c;
+@amber: #ffab32;
+@orange: #ffd598;
+@deep-orange: #ff9049;
+@brown: #d18c27;
+
+@very-light-grey: #e8e8e8;
+@light-grey: #929292;
+@grey: #535353;
+@dark-grey: #464646;
+@very-dark-grey: #363737;
+
+@accent-color: #ffffff;
+@accent-text-color: lighten(@base-color, 60%);
+@base-color: #337bab;
+
+// Syntax-variables-less-sheet
+@syntax-text: @very-light-grey;
+@syntax-cursor: white;
+@syntax-selection: lighten(@dark-grey, 10%);
+@syntax-background: @very-dark-grey;
+
+@guide-wrap: @dark-grey;
+@guide-indent: @grey;
+@guide-invisible: @grey;
+
+@result-marker: @light-grey;
+@result-marker-selected: white;
+
+@gutter-text: @very-light-grey;
+@gutter-text-selected: @very-light-grey;
+@gutter-background: @dark-grey;
+@gutter-background-selected: @grey;
+
+@gutter-renamed: @green;
+@gutter-added: @blue;
+@gutter-modified: @deep-purple;
+@gutter-removed: @red;
+
+// Accent Colors
+@background-color-selected: @blue;
+@timing-function: cubic-bezier(.4, 0, .2, 1);
 
 // Colors
-@app-background-color: @syntax-background-color;
-@accent-color: @syntax-cursor-color;
+@app-background-color: @syntax-background;
+@accent-color: @syntax-cursor;
 @accent-text-color: darken(@accent-color, 25%);
 
-@text-color: fade(@syntax-text-color, 80%);
+@text-color: fade(@syntax-text, 80%);
 @text-color-dark: darken(@text-color, 10%);
 @text-color-subtle: fade(@text-color, 50%);
 @text-color-highlight: fade(@text-color, 60%);
 @text-color-selected: @text-color-highlight;
 
 @text-color-info: @blue;
-@text-color-success: @light-green;
-@text-color-warning: darken(@amber, 10%);
+@text-color-success: @green;
+@text-color-warning: @deep-purple;
 @text-color-error: @red;
 
 @text-color-ignored: fade(@text-color, 50%);
 @text-color-added: lighten(@text-color-success, 10%);
 @text-color-renamed: lighten(@text-color-info, 10%);
-@text-color-modified: @amber;
+@text-color-modified: @deep-purple;
 @text-color-removed: @text-color-error;
 
 @background-color-info: lighten(@blue, 25%);
 @background-color-success: lighten(@light-green, 25%);
-@background-color-warning: lighten(@yellow, 10%);
+@background-color-warning: lighten(@deep-purple, 10%);
 @background-color-error: lighten(@red, 25%);
 @background-color-highlight: fade(@base-color, 10%);
 
 @base-background-color: transparent;
-@base-border-color: rgba(0, 0, 0, 0.1);
+@base-border-color: fade(black, 1%);
 
-@pane-item-background-color: @base-background-color;
-@pane-item-border-color: rgba(0, 0, 0, 0.1);
+@pane-item-background-color: @app-background-color;
+@pane-item-border-color: fade(black, 1%);
 
 @input-background-color: #FFF;
 @input-border-color: @base-border-color;
@@ -69,61 +123,27 @@
 @ui-site-color-1: @background-color-success;
 @ui-site-color-2: @background-color-info;
 @ui-site-color-3: @background-color-warning;
-@ui-site-color-4: #9C27B0;
-@ui-site-color-5: #FFEB3B;
+@ui-site-color-4: lighten(@deep-orange, 10%);
+@ui-site-color-5: lighten(@yellow, 10%);
 
 // Sizes
-
-@font-size: 0.8rem;
-@input-font-size: 0.8rem;
-@disclosure-arrow-size: 0.8rem;
-@component-padding: 0.5rem;
-@component-icon-padding: 0.25rem;
-@component-icon-size: 1.5rem;
-@component-line-height: 1;
-@component-border-radius: 0.125rem;
+@font-size: 11px;
+@input-font-size: 14px;
+@disclosure-arrow-size: 12px;
+@component-padding: 10px;
+@component-icon-padding: 5px;
+@component-icon-size: 16px;
+@component-line-height: 25px;
+@component-border-radius: 2px;
+@tab-height: 26px;
 
 // Other
-
 @font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
-
-// Material Design Key Colors
-
-@red:            #F44336;
-@pink:           #E91E63;
-@purple:         #9C27B0;
-@deep-purple:    #673AB7;
-@indigo:         #3F51B5;
-@blue:           #2196F3;
-@light-blue:     #03A9F4;
-@cyan:           #00BCD4;
-@teal:           #009688;
-@teal-300:       #4DB6AC;
-@green:          #4CAF50;
-@light-green:    #8BC34A;
-@lime:           #CDDC39;
-@yellow:         #FFEB3B;
-@amber:          #FFC107;
-@orange:         #FF9800;
-@deep-orange:    #FF5722;
-@brown:          #795548;
-@grey:           #9E9E9E;
-@grey-700:       #616161;
-@blue-grey:      #607D8B;
-
-// Accent Colors
-
-@background-color-selected: @blue-grey;
-@timing-function: cubic-bezier(.4, 0, .2, 1);
-
-// These are default values
-
-@accent-color: #FFFFFF;
-@accent-text-color: #FFFFFF;
-@base-color: #009688;
 
 :root {
     font-size: 16px;
 }
 
 @import "custom";
+
+//Variables
