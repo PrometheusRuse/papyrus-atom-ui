@@ -1,32 +1,32 @@
 // VCS colors
 .status-modified:not(.tree-view .status-modified) {
-    color: @amber;
+    color: @modified;
 }
 .status-added:not(.tree-view .status-added) {
-    color: @light-green;
+    color: @added;
 }
 .status-removed:not(.tree-view .status-removed) {
-    color: @amber;
+    color: @removed;
 }
 .status-renamed:not(.tree-view .status-renamed) {
-    color: @blue;
+    color: @renamed;
 }
 .status-ignored:not(.tree-view .status-ignored) {
     color: fade(@text-color, 50%);
 }
 // Text colors
 .text-warning {
-    color: @amber;
+    color: @modified;
 
     a code, a:hover code {
-        color: darken(@amber, 5%);
+        color: darken(@modified, 5%);
     }
 }
 .text-error {
-    color: @red;
+    color: @removed;
 
     a code, a:hover code {
-        color: desaturate(darken(@red, 10%), 20%);
+        color: desaturate(darken(@removed, 10%), 20%);
     }
 }
 .text-highlight {
@@ -46,14 +46,14 @@
     color: @base-color;
 }
 .highlight-info {
-    color: @blue;
+    color: @renamed;
 }
 .highlight-success {
-    color: @light-green;
+    color: @added;
 }
 .highlight-warning {
-    color: @amber;
+    color: @modified;
 }
 .highlight-error {
-    color: @red;
+    color: @removed;
 }

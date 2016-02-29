@@ -9,16 +9,16 @@
         color: @text-color;
     }
     .alert-error::before, .alert-danger::before {
-        color: @red;
+        color: @removed;
     }
     .alert-warning::before {
-        color: darken(@deep-purple, 20%);
+        color: darken(@modified, 20%);
     }
     .alert-success::before {
-        color: darken(@light-green, 10%);
+        color: darken(@added, 10%);
     }
     .alert-info::before {
-        color: darken(@blue, 10%);
+        color: darken(@renamed, 10%);
     }
     .close, button[class*="close"] {
         box-shadow: none;
