@@ -1,66 +1,3 @@
-// Key Colors
-@red: #cb4949;
-@pink: #e1a9a9;
-@purple: #a7abcb;
-@deep-purple: #946ac6;
-@indigo: #b5b7cc;
-@light-blue: #83b7da;
-@blue: #278ed1;
-@cyan: #2bc9e2;
-@teal: #22e0c5;
-@green: #27d16b;
-@light-green: #6fd697;
-@lime: #7fbe5d;
-@yellow: #f3ea9c;
-@amber: #ffab32;
-@orange: #ffd598;
-@deep-orange: #ff9049;
-@brown: #d18c27;
-
-@very-light-grey: #e8e8e8;
-@light-grey: #929292;
-@grey: #535353;
-@dark-grey: #464646;
-@very-dark-grey: #363737;
-
-@accent-color: #ffffff;
-@accent-text-color: lighten(@base-color, 60%);
-@base-color: #337bab;
-
-//Variables
-@ignored: fade(@syntax-text, 50%);
-@added: @green;
-@renamed: @deep-orange;
-@modified: @deep-purple;
-@removed: @red;
-
-// Syntax-variables-less-sheet
-@syntax-text: @very-light-grey;
-@syntax-cursor: white;
-@syntax-selection: lighten(@dark-grey, 10%);
-@syntax-background: @very-dark-grey;
-
-@guide-wrap: @dark-grey;
-@guide-indent: @grey;
-@guide-invisible: @grey;
-
-@result-marker: @light-grey;
-@result-marker-selected: white;
-
-@gutter-text: @very-light-grey;
-@gutter-text-selected: @very-light-grey;
-@gutter-background: @dark-grey;
-@gutter-background-selected: @grey;
-
-@gutter-renamed: @renamed;
-@gutter-added: @added;
-@gutter-modified: @modified;
-@gutter-removed: @removed;
-
-// Accent Colors
-@background-color-selected: @blue;
-@timing-function: cubic-bezier(.4, 0, .2, 1);
-
 // Colors
 @app-background-color: @syntax-background;
 @accent-color: @syntax-cursor;
@@ -133,6 +70,13 @@
 @ui-site-color-4: lighten(@blue, 10%);
 @ui-site-color-5: lighten(@yellow, 10%);
 
+//Variables
+@ignored: fade(@syntax-text, 50%);
+@added: @green;
+@renamed: @deep-orange;
+@modified: @deep-purple;
+@removed: @red;
+
 // Sizes
 @font-size: 11px;
 @input-font-size: 14px;
@@ -145,12 +89,61 @@
 @tab-height: 26px;
 
 // Other
-@font-family: 'Cambria', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+@font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
 
-:root {
-    font-size: 24px;
-}
+// Key Colors
+@red: #cb4949;
+@pink: #e1a9a9;
+@purple: #a7abcb;
+@deep-purple: #946ac6;
+@indigo: #b5b7cc;
+@light-blue: #83b7da;
+@blue: #278ed1;
+@cyan: #2bc9e2;
+@teal: #22e0c5;
+@green: #27d16b;
+@light-green: #6fd697;
+@lime: #7fbe5d;
+@yellow: #f3ea9c;
+@amber: #ffab32;
+@orange: #ffd598;
+@deep-orange: #ff9049;
+@brown: #d18c27;
 
-@import "custom";
+@very-light-grey: #e8e8e8;
+@light-grey: #929292;
+@grey: #535353;
+@dark-grey: #464646;
+@very-dark-grey: #363737;
 
-//Variables
+// Syntax-variables-less-sheet
+@syntax-text: @very-light-grey;
+@syntax-cursor: white;
+@syntax-selection: lighten(@dark-grey, 10%);
+@syntax-background: @very-dark-grey;
+
+@guide-wrap: @dark-grey;
+@guide-indent: @grey;
+@guide-invisible: @grey;
+
+@result-marker: @light-grey;
+@result-marker-selected: white;
+
+@gutter-text: @very-light-grey;
+@gutter-text-selected: @very-light-grey;
+@gutter-background: @dark-grey;
+@gutter-background-selected: @grey;
+
+@gutter-renamed: @renamed;
+@gutter-added: @added;
+@gutter-modified: @modified;
+@gutter-removed: @removed;
+
+// Accent Colors
+@background-color-selected: @base-color;
+@timing-function: cubic-bezier(.4, 0, .2, 1);
+
+// These are default values
+@accent-color: #ffffff;
+@accent-text-color: lighten(@base-color, 60%);
+@base-color: #337bab;
