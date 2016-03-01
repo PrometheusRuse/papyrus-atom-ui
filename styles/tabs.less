@@ -225,13 +225,13 @@
         }
     }
     .panel-contrast:not(.tinted-tab-bar) &:not([data-reactid]) {
-        background-color: darken(@app-background-color, 2%);
+        background-color: lighten(@app-background-color, 3%);
 
         &::before {
-            background-image: linear-gradient(to right, darken(@app-background-color, 2%) 0%, transparent 100%);
+            background-image: linear-gradient(to right, lighten(@app-background-color, 3%) 0%, transparent 100%);
         }
         &::after {
-            background-image: linear-gradient(to left, darken(@app-background-color, 2%) 0%, transparent 100%);
+            background-image: linear-gradient(to left, lighten(@app-background-color, 3%) 0%, transparent 100%);
             right: 0;
         }
     }
