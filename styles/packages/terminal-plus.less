@@ -13,28 +13,28 @@
         // The following are !important because the were span elements
         // with no class names and had inline styles. Looks weird, I know.
         span[style="color:#cd0000;"] {
-            color: @red !important;
+            color: @hue-1 !important;
         }
         span[style="color:#00cd00;"] {
-            color: @light-green !important;
+            color: @hue-11 !important;
         }
         span[style="color:#0000cd;"] {
-            color: @blue !important;
+            color: @hue-8 !important;
         }
         span[style="color:#cd00cd;"] {
-            color: lighten(@deep-purple, 10%) !important;
+            color: lighten(@hue-4, 10%) !important;
         }
         span[style="color:#000000;background-color:#cd0000;"] {
             color: #FFF !important;
-            background-color: @red !important;
+            background-color: @hue-1 !important;
         }
         span[style="color:#000000;background-color:#00cdcd;"] {
-            color: darken(@cyan, 25%) !important;
-            background-color: @cyan !important;
+            color: darken(@hue-9, 25%) !important;
+            background-color: @hue-9 !important;
         }
         span[style="color:#000000;background-color:#00cd00;"] {
-            color: darken(@light-green, 35%) !important;
-            background-color: @light-green !important;
+            color: darken(@hue-11, 35%) !important;
+            background-color: @hue-11 !important;
         }
         .btn-toolbar {
             background-color: darken(@app-background-color, 1.5%);
@@ -51,7 +51,7 @@
         margin: 0;
 
         .icon-x {
-            color: @red;
+            color: @hue-1;
         }
     }
     .panel-contrast & {

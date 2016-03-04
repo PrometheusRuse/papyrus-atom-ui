@@ -1,9 +1,71 @@
+// Key Colors
+@hue-1: #cb4949;
+@hue-2: #e1a9a9;
+@hue-3: #a7abcb;
+@hue-4: #946ac6;
+@hue-5: #b5b7cc;
+@hue-6: #83b7da;
+@hue-7: #278ed1;
+@hue-8: #2bc9e2;
+@hue-9: #22e0c5;
+@hue-10: #27d16b;
+@hue-11: #6fd697;
+@hue-12: #7fbe5d;
+@hue-13: #f3ea9c;
+@hue-14: #ffab32;
+@hue-15: #ffd598;
+@hue-16: #ff9049;
+@hue-17: #d18c27;
+
+@background-hue-1: #e8e8e8;
+@background-hue-2: #929292;
+@background-hue-3: #535353;
+@background-hue-4: #464646;
+@background-hue-5: #363737;
+
+@primary-hue: #337bab;
+@accent-hue: #ffffff;
+
+// General colors
+@syntax-text-color: @background-hue-1;
+@syntax-cursor-color: @accent-hue;
+@syntax-selection-color: lighten(@background-hue-4, 10%);
+@syntax-background-color: @background-hue-5;
+
+// Guide colors
+@syntax-wrap-guide-color: @background-hue-4;
+@syntax-indent-guide-color: @background-hue-3;
+@syntax-invisible-character-color: @background-hue-3;
+
+// For find and replace markers
+@syntax-result-marker-color: @background-hue-2;
+@syntax-result-marker-color-selected: @accent-hue;
+
+// Gutter colors
+@syntax-gutter-text-color: @background-hue-1;
+@syntax-gutter-text-color-selected: @background-hue-1;
+@syntax-gutter-background-color: @background-hue-4;
+@syntax-gutter-background-color-selected: @background-hue-3;
+
+// For git diff info. i.e. in the gutter
+@syntax-color-renamed: @renamed;
+@syntax-color-added: @added;
+@syntax-color-modified: @modified;
+@syntax-color-removed: @removed;
+
+//Variables
+@ignored: fade(@background-hue-1, 50%);
+@added: @hue-10;
+@renamed: @hue-16;
+@modified: @hue-4;
+@removed: @hue-1;
+
 // Colors
-@app-background-color: @syntax-background;
-@accent-color: @syntax-text;
+@app-background-color: @syntax-background-color;
+@accent-color: @syntax-text-color;
 @accent-text-color: darken(@accent-color, 25%);
 
-@text-color: @syntax-text;
+@text-color: @syntax-text-color;
 @text-color-dark: darken(@text-color, 10%);
 @text-color-subtle: fade(@text-color, 50%);
 @text-color-highlight: fade(@text-color, 60%);
@@ -32,24 +94,24 @@
 @pane-item-background-color: @app-background-color;
 @pane-item-border-color: fade(black, 1%);
 
-@input-background-color: #FFF;
+@input-background-color: @accent-hue;
 @input-border-color: @base-border-color;
 
 @tool-panel-background-color: @app-background-color;
 @tool-panel-border-color: @base-border-color;
 
-@inset-panel-background-color: #161719;
+@inset-panel-background-color: @app-background-color;
 @inset-panel-border-color: @base-border-color;
 
-@panel-heading-background-color: #43484d;
+@panel-heading-background-color: @syntax-gutter-background-color;
 @panel-heading-border-color: fadein(@base-border-color, 10%);
 
-@overlay-background-color: #202123;
+@overlay-background-color: @app-background-color;
 @overlay-border-color: @background-color-highlight;
 
-@button-background-color: #43484d;
+@button-background-color: @app-background-color;
 @button-background-color-hover: lighten(@button-background-color, 5%);
-@button-background-color-selected: #5c6064;
+@button-background-color-selected: @app-background-color;
 @button-border-color: @base-border-color;
 
 @tab-bar-background-color: transparent;
@@ -67,15 +129,8 @@
 @ui-site-color-1: @background-color-success;
 @ui-site-color-2: @background-color-info;
 @ui-site-color-3: @background-color-warning;
-@ui-site-color-4: lighten(@blue, 10%);
-@ui-site-color-5: lighten(@yellow, 10%);
-
-//Variables
-@ignored: fade(@syntax-text, 50%);
-@added: @green;
-@renamed: @deep-orange;
-@modified: @deep-purple;
-@removed: @red;
+@ui-site-color-4: lighten(@hue-13, 10%);
+@ui-site-color-5: lighten(@hue-8, 10%);
 
 // Sizes
 @font-size: 11px;
@@ -91,59 +146,11 @@
 // Other
 @font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
 
-// Key Colors
-@red: #cb4949;
-@pink: #e1a9a9;
-@purple: #a7abcb;
-@deep-purple: #946ac6;
-@indigo: #b5b7cc;
-@light-blue: #83b7da;
-@blue: #278ed1;
-@cyan: #2bc9e2;
-@teal: #22e0c5;
-@green: #27d16b;
-@light-green: #6fd697;
-@lime: #7fbe5d;
-@yellow: #f3ea9c;
-@amber: #ffab32;
-@orange: #ffd598;
-@deep-orange: #ff9049;
-@brown: #d18c27;
-
-@very-light-grey: #e8e8e8;
-@light-grey: #929292;
-@grey: #535353;
-@dark-grey: #464646;
-@very-dark-grey: #363737;
-
-// Syntax-variables-less-sheet
-@syntax-text: @very-light-grey;
-@syntax-cursor: white;
-@syntax-selection: lighten(@dark-grey, 10%);
-@syntax-background: @very-dark-grey;
-
-@guide-wrap: @dark-grey;
-@guide-indent: @grey;
-@guide-invisible: @grey;
-
-@result-marker: @light-grey;
-@result-marker-selected: white;
-
-@gutter-text: @very-light-grey;
-@gutter-text-selected: @very-light-grey;
-@gutter-background: @dark-grey;
-@gutter-background-selected: @grey;
-
-@gutter-renamed: @renamed;
-@gutter-added: @added;
-@gutter-modified: @modified;
-@gutter-removed: @removed;
-
 // Accent Colors
 @background-color-selected: @base-color;
 @timing-function: cubic-bezier(.4, 0, .2, 1);
 
 // These are default values
-@accent-color: #ffffff;
+@accent-color: @accent-hue;
 @accent-text-color: lighten(@base-color, 60%);
-@base-color: #337bab;
+@base-color: @primary-hue;
