@@ -4,7 +4,7 @@
         z-index: 200;
 
         > .ps-scrollbar-y, > .ps-scrollbar-x {
-            background-color: fade(@base-color, 80%);
+            background-color: @base-color;
             border-radius: 0;
             border: none;
         }
@@ -15,12 +15,13 @@
                 background-color: fade(@base-color, 10%);
 
                 > .ps-scrollbar-y, > .ps-scrollbar-x {
-                    background-color: fade(@base-color, 80%);
+                    background-color: @base-color;
                 }
             }
         }
     }
 }
+
 .scrollbars-visible-always {
     /deep/::-webkit-scrollbar {
         width: 0.5rem;
@@ -32,8 +33,17 @@
         background: transparent;
     }
     /deep/::-webkit-scrollbar-thumb {
-        background: fade(@base-color, 80%);
-        border-radius: 0;
-        border: none;
+        background: @base-color;
+        border-radius: 5px;
+        border: 0 0 1px black inset;
     }
+}
+
+.editor.react {
+  .scroll-view {
+    padding: 20px;
+  }
+  .gutter {
+    padding-top: 20px;
+  }
 }

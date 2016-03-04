@@ -46,7 +46,7 @@
             color: @accent-text-color;
 
             &::after {
-                background-color: @base-color;
+                background-color: fade(@text-color, 30%);
             }
         }
         li:not(.list-nested-item), li.list-nested-item > .list-item {
@@ -54,7 +54,7 @@
                 color: @text-color;
 
                 &::before {
-                    background-color: @base-color;
+                    background-color: fade(@text-color, 30%);
                 }
             }
         }
