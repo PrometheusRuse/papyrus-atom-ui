@@ -1,3 +1,5 @@
+@import "ui-variables";
+
 .tree-view {
     font-size: 0.8rem;
     overflow: hidden;
@@ -39,22 +41,22 @@
         }
     }
     li.status-ignored {
-        color: fade(@text-color, 30%);
+        color: @background-hue-3;
     }
     &:focus {
         li.directory.selected > .list-item {
-            color: @accent-text-color;
+            color: @base-color;
 
             &::after {
-                background-color: fade(@text-color, 30%);
+                background-color: @background-hue-3;
             }
         }
         li:not(.list-nested-item), li.list-nested-item > .list-item {
             &.selected {
-                color: @text-color;
+                color: @base-color;
 
                 &::before {
-                    background-color: fade(@text-color, 30%);
+                    background-color: @background-hue-3;
                 }
             }
         }
