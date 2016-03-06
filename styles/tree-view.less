@@ -4,13 +4,19 @@
     direction: ltr;
     background: @tree-view-background-color;
     .project-root {
+        padding: 0;
+        transform: translate3d(0,0,0);
+    }
+    .project-root {
         > .header {
+            font-size: 1.25rem;
             font-weight: 700;
             color: @primary-hue;
             line-height: 3rem;
-            height: 2.2rem;
+            height: 2.5rem;
             width: 100%;
             padding: 0 0.5rem;
+            z-index: 1000;
             span, &::before {
                 line-height: 3rem;
             }
@@ -18,7 +24,8 @@
 
         .name.icon {
             &::before {
-                margin: 0 0.5rem 0 0.5rem;
+                margin-right: 0 0.5rem;
+                margin-left: 0 0rem;
             }
         }
         .selected {
@@ -28,6 +35,7 @@
         .selected:before {
             background: @background-color-selected;
             .border-radius (.5rem, .5rem, .5rem, .5rem);
+
         }
     }
 }
