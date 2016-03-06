@@ -4,6 +4,7 @@ atom-panel {
             background: lighten(@app-background-color, 3%);
             font-size: 0.8rem;
         }
+
         .padded & {
             .panel-heading {
                 margin: -0.5rem -0.5rem 0.5rem;
@@ -12,6 +13,7 @@ atom-panel {
         }
     }
 }
+
 atom-panel-container {
     &.top, &.bottom, &.left, &.right {
         background-color: @app-background-color;
@@ -20,6 +22,7 @@ atom-panel-container {
             background-color: @app-background-color;
         }
     }
+
     .tinted-tab-bar & {
         &.top {
             atom-panel, .tool-panel {
@@ -27,6 +30,7 @@ atom-panel-container {
             }
         }
     }
+
     .panel-shadows & {
         atom-panel {
             &::after {
@@ -39,6 +43,7 @@ atom-panel-container {
                 pointer-events: none;
                 z-index: 10000;
             }
+
             &.right {
                 position: relative;
 
@@ -47,6 +52,7 @@ atom-panel-container {
                     background: linear-gradient(to right, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
                 }
             }
+            
             &.left {
                 position: relative;
 
