@@ -30,3 +30,11 @@
 .z-depth-5() {
     box-shadow: 0 1.125rem 2.25rem fade(black, 0.30%), 0 1rem 0.75rem fade(black, 0.22%);
 }
+
+//Boarder radius
+.border-radius (@topleft: 0, @topright: 0, @bottomleft: 0, @bottomright: 0) {
+    border-top-right-radius: @topright;
+    border-bottom-right-radius: @bottomright;
+    border-bottom-left-radius: @bottomleft;
+    border-top-left-radius: @topleft;
+}
