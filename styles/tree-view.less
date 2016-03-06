@@ -1,12 +1,11 @@
 @import "ui-variables";
 
 .tree-view {
+    font-size: 0.8rem;
+    overflow: hidden;
     direction: ltr;
     background: @tree-view-background-color;
-    .project-root {
-        padding: 0;
-        transform: translate3d(0,0,0);
-    }
+
     .project-root {
         > .header {
             font-size: 1.25rem;
@@ -37,6 +36,9 @@
             .border-radius (.5rem, .5rem, .5rem, .5rem);
 
         }
+    }
+    &.has-collapsable-children .list-nested-item {
+        font-weight: 600;
     }
 }
 
