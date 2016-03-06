@@ -1,111 +1,44 @@
 @import "ui-variables";
 
 .tree-view {
-    font-size: 0.8rem;
-    overflow: hidden;
-
-    .project-root {
-        padding: 0;
-        transform: translate3d(0,0,0);
-    }
+    direction: ltr;
+    background: @tree-view-background-color;
     .project-root {
         > .header {
+            font-weight: 700;
+            color: @primary-hue;
             line-height: 3rem;
-            height: 3rem;
+            height: 2.2rem;
             width: 100%;
             padding: 0 0.5rem;
-            z-index: 1000;
-
             span, &::before {
                 line-height: 3rem;
             }
         }
-    }
-    .name.icon {
-        &.icon-repo::before {
-            margin-right: 0.75rem;
-        }
-        &::before {
-            font-size: 1rem;
-            margin: 0 1.5rem 0 0.5rem;
-        }
-    }
-    li {
-        padding: 0 0.5rem;
-    }
-    li.directory.selected > .list-item {
-        position: relative;
 
-        &::after {
-            .selected-item;
-        }
-    }
-    li.status-ignored {
-        color: @base-color;
-    }
-    &:focus {
-        li.directory.selected > .list-item {
-            color: @text-color;
-
-            &::after {
-                background-color: @base-color;
+        .name.icon {
+            &::before {
+                margin: 0 0.5rem 0 0.5rem;
             }
         }
-        li:not(.list-nested-item), li.list-nested-item > .list-item {
-            &.selected {
-                color: @text-color;
-
-                &::before {
-                    background-color: @base-color;
-                }
-            }
+        .selected {
+            font-weight: 600;
         }
-    }
-    &.has-collapsable-children .list-nested-item > .list-item::before {
-        z-index: 10;
-    }
-    .panel-contrast & {
-        background-color: lighten(@app-background-color, 3%);
-    }
-    .compact-tree-view & {
-        li:not(.list-nested-item), li.list-nested-item > .list-item {
-            line-height: 1.75rem;
+
+        .selected:before {
+            background: @background-color-selected;
+            .border-radius (.5rem, .5rem, .5rem, .5rem);
         }
     }
 }
+
 .tree-view-scroller {
-    transform: translate3d(0, 0, 0);
-    position: relative;
+    direction: rtl;
+    background: @tree-view-background-color;
 }
-.compact-tab-bar .tree-view-resizer > .tabBlender {
-    height: 2.5rem;
-    line-height: 2.5rem;
-}
-.tabBlender {
-    display: none;
-    position: relative;
-    background: @base-color;
-    color: @accent-text-color;
-    text-transform: uppercase;
-    height: 3rem;
-    line-height: 3rem;
-    z-index: 100;
 
-    span::after {
-        padding: 0 1rem;
-        content: 'Projects';
-    }
-    .panel-shadows & {
-        .z-depth-1;
-    }
-    .panel-contrast & {
-        background: darken(@base-color, 3%);
-    }
-    .compact-tab-bar & {
-        line-height: 2.5rem;
-        height: 2.5rem;
-    }
-    .blend-tree-view.tinted-tab-bar & {
-        display: block;
+.tree-view-resizer {
+    .tree-view-resize-handle {
+        width: 8px;
     }
 }
