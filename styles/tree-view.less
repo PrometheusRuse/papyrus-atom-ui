@@ -7,7 +7,11 @@
     background: @tree-view-background-color;
 
     .project-root {
-        > .header {
+         > .header {
+             > .icon-repo {
+                 &:before {
+                     display: none;
+                    }
             font-size: 1.25rem;
             font-weight: 700;
             color: @primary-hue;
@@ -18,15 +22,16 @@
             z-index: 1000;
             span, &::before {
                 line-height: 3rem;
+                }
             }
         }
-
         .name.icon {
             &::before {
                 margin-right: 0 0.5rem;
                 margin-left: 0 0rem;
             }
         }
+
         .selected {
             font-weight: 600;
         }
@@ -39,6 +44,21 @@
     }
     &.has-collapsable-children .list-nested-item {
         font-weight: 600;
+    }
+}
+
+.list-item {
+    z-index: 0;
+    color: @text-color;
+    width: inherit;
+    &:hover{
+        color: @primary-hue;
+    }
+    &,
+    &:before,
+    &:after {
+        font-weight: 600;
+        background: @app-background-color;
     }
 }
 
