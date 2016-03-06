@@ -64,7 +64,13 @@
             z-index: 2000;
         }
 
-        .active .close-icon,
+        .active .close-icon {
+            visibility: visible;
+            z-index: 3;
+            line-height: @tab-height;
+            color: @text-color;
+        }
+
         &:hover .close-icon {
           visibility: visible;
           z-index: 3;
@@ -94,6 +100,10 @@
       color: @text-color;
       width: inherit;
 
+      &:hover{
+          color: @text-color;
+      }
+
       .close-icon {
         visibility: visible;
         line-height: @tab-height - 1px;
@@ -116,7 +126,7 @@
       color: @text-color;
 
       &:hover {
-        color: inherit;
+        color: @text-color;
       }
     }
 
