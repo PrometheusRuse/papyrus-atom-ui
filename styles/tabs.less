@@ -1,31 +1,20 @@
 @import "ui-variables";
 
+
+
+
 .tab-bar {
     position: relative;
-    height: @tab-height + @tab-top-padding + @tab-bottom-border-height;
+    height: @tab-height + @tab-top-padding;
     background: @tab-bar-background-color;
     overflow-x: auto;
     overflow-y: hidden;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      height: @tab-bottom-border-height;
-      left: 0;
-      right: 0;
-      background-color: @tab-background-color-active;
-      border: .15rem solid @tab-bar-bottom-border-color;
-      .border-radius (.4rem, .4rem, .4rem, .4rem);
-      pointer-events: none;
-    }
+    border-bottom: .15rem solid @tab-bar-bottom-border-color;
+    bottom: 0;
 
     .tab {
         position: relative;
-        top: @tab-top-padding;
+        top: 0;
         text-align: center;
         font-size: inherit;
         max-width: @tab-max-width;
@@ -35,31 +24,48 @@
         font-weight: 600;
         padding: 0 0 0 5px;
         transition: min-width 250ms @timing-function;
+
+
+        &.active {
+            flex: 1;
+        }
+
+        &.modified,
+        &.modified:hover,
+        &.modified:not(:hover) {
+            .title {
+                color: @modified;
+            }
+        }
+
         .close-icon {
             cursor: pointer;
             visibility: hidden;
-            right: 0;
-        }
-        &::before {
-            position: absolute;
-            content: '';
-            bottom: 0;
-            left: 0;
-            height: 0.125rem;
-            width: 100%;
-            transform: scaleX(0) translateX(50%);
-            transition: transform 250ms @timing-function, opacity 250ms @timing-function;
-            opacity: 0;
-            background-color: @text-color;
-            z-index: 2000;
-        }
+            right: 5px;
+}
+            &::before {
+                position: absolute;
+                content: '';
+                bottom: 0;
+                left: 0;
+                height: 0.125rem;
+                width: 100%;
+                transform: scaleX(0) translateX(50%);
+                transition: transform 250ms @timing-function, opacity 250ms @timing-function;
+                opacity: 0;
+                background-color: @text-color;
+                z-index: 2000;
+            }
+
 
         .active .close-icon {
             visibility: visible;
             z-index: 3;
             line-height: @tab-height;
             color: @text-color;
+
         }
+
         &:hover .close-icon {
             visibility: visible;
             z-index: 3;
@@ -69,13 +75,16 @@
                 color: inherit;
             }
         }
+
         &.modified:not(:hover) .close-icon {
+            color: @modified;
             visibility: visible;
-            top: @tab-height/2 - @modified-icon-width/2 + 1px;
-            right: 4px;
+            top: @tab-height/2 - @modified-icon-width/2 + 2px;
+            right: 6px;
             width: @modified-icon-width;
             height: @modified-icon-width;
         }
+
         &.modified:hover .close-icon:hover {
             color: @primary-hue;
         }
