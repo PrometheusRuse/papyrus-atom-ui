@@ -18,14 +18,15 @@
       left: 0;
       right: 0;
       background-color: @tab-background-color-active;
-      border: .31rem solid @tab-bar-bottom-border-color;
-      .border-radius (.5rem, .5rem, .5rem, .5rem);
+      border: .15rem solid @tab-bar-bottom-border-color;
+      .border-radius (.4rem, .4rem, .4rem, .4rem);
       pointer-events: none;
     }
 
     .tab {
         position: relative;
         top: @tab-top-padding;
+        text-align: center;
         font-size: inherit;
         max-width: @tab-max-width;
         height: @tab-height;
@@ -98,8 +99,7 @@
             font-weight: 600;
             background: @primary-hue;
             height: @tab-height + 1px;
-            border: 0 0 1px black inset;
-            .border-radius (.6rem, .6rem, .0rem, .0rem);
+            .border-radius (.4rem, .4rem, .0rem, .0rem);
         }
     }
 

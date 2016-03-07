@@ -1,7 +1,7 @@
 
 .selected-item() {
     background-color: @base-color;
-    .border-radius (.6rem, .6rem, .6rem, .6rem);
+    .border-radius ();
     color: @text-color;
     content: '';
     height: 100%;
@@ -14,7 +14,7 @@
 
 
 //Boarder radius
-.border-radius (@topleft: 0, @topright: 0, @bottomleft: 0, @bottomright: 0) {
+.border-radius (@topleft: .4rem, @topright: .4rem, @bottomleft: .4rem, @bottomright: .4rem) {
     border-top-right-radius: @topright;
     border-bottom-right-radius: @bottomright;
     border-bottom-left-radius: @bottomleft;
