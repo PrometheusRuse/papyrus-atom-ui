@@ -65,6 +65,14 @@
             }
         }
 
+        &.modified,
+        &.modified:hover,
+        &.modified:not(:hover) {
+            .title {
+                color: @modified;
+            }
+        }
+
         &.is-dragging {
             opacity: 1;
             border: none;
@@ -85,13 +93,7 @@
             }
         }
 
-        &.modified:not(:hover) .close-icon {
-            top: 1.25rem;
-            right: 1rem;
-            border-color: @base-color;
-            opacity: 0.75;
-            transform: scale(1);
-        }
+
 
         .close-icon {
             width: 1rem;
@@ -110,6 +112,40 @@
                 position: relative;
                 top: -0.125rem;
             }
+        }
+
+        .active .close-icon {
+            visibility: visible;
+            color: @text-color;
+            width: 1rem;
+            height: 1rem;
+            line-height: 1;
+            text-align: center;
+            font-size: 1rem;
+            right: 0.75rem;
+            top: 1rem;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 250ms @timing-function;
+            transform: scale(0);
+        }
+
+        &:hover .close-icon {
+            visibility: visible;
+            z-index: 3;
+
+            color: @hover;
+            &:hover {
+                color: inherit;
+            }
+        }
+
+        &.modified:not(:hover) .close-icon {
+            top: 1.25rem;
+            right: 1rem;
+            border-color: @modified;
+            opacity: 1;
+            transform: scale(1);
         }
 
         .title {
@@ -311,7 +347,7 @@
             }
         }
     }
-    
+
     &.tinted-tab-bar {
         .tab-bar:not([data-reactid]) .tab {
             .title[data-path] {
