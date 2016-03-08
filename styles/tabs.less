@@ -21,6 +21,9 @@
     overflow-y: hidden;
     -webkit-font-smoothing: antialiased;
     z-index: 10;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .tab {
         position: relative;
@@ -52,7 +55,6 @@
 
         &.active {
             flex: 1;
-
             &::before {
                 opacity: 1;
                 transform: scaleX(1) translateX(0);
@@ -70,7 +72,10 @@
             .title {
                 color: @modified;
             }
-
+            .close-icon{
+                visibility: visible;
+                color:@modified;
+            }
         }
 
         &.is-dragging {
@@ -79,7 +84,7 @@
             margin: 0;
 
             .close-icon {
-                visibility: hidden;
+            visibility: hidden;
             }
 
             .ink {
@@ -96,22 +101,12 @@
         .close-icon {
             cursor: pointer;
             visibility: hidden;
-            right: 5px;
-}
-            &::before {
-                position: absolute;
-                content: '';
-                bottom: 0;
-                left: 0;
-                height: 0.125rem;
-                width: 100%;
-                transform: scaleX(0) translateX(50%);
-                transition: transform 250ms @timing-function, opacity 250ms @timing-function;
-                opacity: 0;
-                background-color: @text-color;
-                z-index: 2000;
-            }
+        }
 
+        &:hover .close-icon {
+           visibility: visible;
+           color: @hover;
+        }
 
         .active .close-icon {
             visibility: visible;
@@ -129,40 +124,26 @@
             transform: scale(0);
         }
 
-        &:hover .close-icon {
-            visibility: visible;
-            z-index: 3;
-            color: @hover;
-            &:hover {
-                color: inherit;
-            }
-        }
-
-
         &.modified:not(:hover) .close-icon {
             visibility: visible;
             top: 1.25rem;
             right: 1rem;
-            border-color: @modified;
+            color: @modified;
             opacity: 0;
             transform: scale(1);
         }
-
-
-
 
         .title {
             position: relative;
             pointer-events: none;
             transition: padding 250ms @timing-function;
             -webkit-mask-image: linear-gradient(to right, rgba(255,255,255,1) 70%,rgba(255,255,255,0) 90%);
-
             &.icon::before {
-                margin-right: 2rem;
+                margin-right: 1rem;
             }
+
             &[class*="status-"] {
                 padding-left: 1.5rem;
-
                 &::after {
                     content: '';
                     width: 0.5rem;
@@ -198,6 +179,9 @@
             }
         }
     }
+
+
+
 
     .ink {
         display: none;
@@ -265,63 +249,57 @@
         }
     }
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+    .tab {
+        color: @accent-text-color;
 
-
-        .tab {
-            color: @accent-text-color;
-
-            &::before {
-                background-color: @accent-color;
-            }
-
-            &.modified:not(:hover) .close-icon {
-                border-color: @accent-color;
-            }
-
-            &.is-dragging {
-                background-color: @base-color;
-            }
+        &::before {
+            background-color: @accent-color;
         }
 
         &.modified:not(:hover) .close-icon {
-            border-color: @accent-text-color;
+            border-color: @accent-color;
         }
 
-        .ink {
-            background-color: fade(@accent-text-color, 25%);
-        }
-
-        .placeholder {
-            border-color: fade(@accent-color, 50%);
-
-            &::after {
-                border-color: transparent transparent @accent-color transparent;
-            }
+        &.is-dragging {
+            background-color: @base-color;
         }
     }
+
+    &.modified:not(:hover) .close-icon {
+        border-color: @accent-text-color;
+    }
+
+    .ink {
+        background-color: fade(@accent-text-color, 25%);
+    }
+
+    .placeholder {
+        border-color: fade(@accent-color, 50%);
+
+        &::after {
+            border-color: transparent transparent @accent-color transparent;
+        }
+    }
+}
 
 .compact-tab-bar & {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    &::before, &::after {
         height: 2.5rem;
-        line-height: 2.5rem;
+    }
 
-        &::before, &::after {
-            height: 2.5rem;
+    .tab {
+        .close-icon {
+            top: 0.75rem;
         }
 
-        .tab {
-            .close-icon {
-                top: 0.75rem;
-            }
-
-            &.modified:not(:hover) .close-icon {
-                top: 1rem;
-            }
-        }
-
-        .title[class*="status-"]::after {
-            top: 1.05rem;
+        &.modified:not(:hover) .close-icon {
+            top: 1rem;
         }
     }
+
+    .title[class*="status-"]::after {
+        top: 1.05rem;
+    }
+}
