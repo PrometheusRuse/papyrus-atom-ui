@@ -71,6 +71,7 @@
             .title {
                 color: @modified;
             }
+
         }
 
         &.is-dragging {
@@ -93,26 +94,25 @@
             }
         }
 
-
-
         .close-icon {
-            width: 1rem;
-            height: 1rem;
-            line-height: 1;
-            text-align: center;
-            font-size: 1rem;
-            right: 0.75rem;
-            top: 1rem;
-            padding: 0;
             cursor: pointer;
-            transition: transform 250ms @timing-function;
-            transform: scale(0);
-
+            visibility: hidden;
+            right: 5px;
+}
             &::before {
-                position: relative;
-                top: -0.125rem;
+                position: absolute;
+                content: '';
+                bottom: 0;
+                left: 0;
+                height: 0.125rem;
+                width: 100%;
+                transform: scaleX(0) translateX(50%);
+                transition: transform 250ms @timing-function, opacity 250ms @timing-function;
+                opacity: 0;
+                background-color: @text-color;
+                z-index: 2000;
             }
-        }
+
 
         .active .close-icon {
             visibility: visible;
@@ -133,20 +133,24 @@
         &:hover .close-icon {
             visibility: visible;
             z-index: 3;
-
             color: @hover;
             &:hover {
                 color: inherit;
             }
         }
 
+
         &.modified:not(:hover) .close-icon {
+            visibility: visible;
             top: 1.25rem;
             right: 1rem;
             border-color: @modified;
-            opacity: 1;
+            opacity: 0;
             transform: scale(1);
         }
+
+
+
 
         .title {
             position: relative;
@@ -205,6 +209,38 @@
         height: 2px;
         -webkit-transform: translate3d(0,0,0);
         background-color: fade(@text-color, 10%);
+    }
+
+    .tab.active {
+        z-index: 0;
+        color: @text-color;
+        width: inherit;
+        &:hover{
+            color: @text-color;
+        }
+        .close-icon {
+            visibility: visible;
+            color: @text-color;
+        }
+        &,
+        &:before,
+        &:after {
+            font-weight: 600;
+            background: @primary-hue;
+            .border-radius (.4rem, .4rem, .0rem, .0rem);
+        }
+    }
+
+    .tab:hover {
+        font-weight: 600;
+        color: @primary-hue;
+    }
+
+    .tab.active:hover .close-icon {
+        color: @text-color;
+        &:hover {
+            color: @text-color;
+        }
     }
 
     .placeholder {
@@ -298,18 +334,7 @@
         }
     }
 
-    .panel-contrast:not(.tinted-tab-bar) &:not([data-reactid]) {
-        background-color: darken(@app-background-color, 2%);
 
-        &::before {
-            background-image: linear-gradient(to right, darken(@app-background-color, 2%) 0%, transparent 100%);
-        }
-
-        &::after {
-            background-image: linear-gradient(to left, darken(@app-background-color, 2%) 0%, transparent 100%);
-            right: 0;
-        }
-    }
 
     .panel-shadows &:not([data-reactid]) {
         .z-depth-1;
