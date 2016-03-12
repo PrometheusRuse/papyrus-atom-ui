@@ -21,6 +21,7 @@
     overflow-y: hidden;
     -webkit-font-smoothing: antialiased;
     z-index: 10;
+
     &::-webkit-scrollbar {
         display: none;
     }
@@ -38,6 +39,7 @@
         transition: min-width 250ms @timing-function;
         font-size: .9rem;
         overflow: hidden;
+
         &.active {
             flex: 1;
             .ink {
@@ -46,6 +48,7 @@
                 -webkit-animation-fill-mode: forwards;
             }
         }
+
         &.is-dragging {
             opacity: 1;
             border: none;
@@ -65,64 +68,52 @@
         }
 
         .title {
+            font-weight: 600;
             position: relative;
             pointer-events: none;
             text-align: left;
             margin: 0 .35rem 0 .75rem;
             transition: padding 250ms @timing-function;
-            letter-spacing: 0.02rem;
+            letter-spacing: 0.01rem;
             -webkit-mask-image: linear-gradient(to right, rgba(255,255,255,1) 70%,rgba(255,255,255,0) 90%);
+
             &.icon::before {
                 margin-right: 1rem;
             }
         }
 
         &.modified,
-        .modified:hover,
-        .modified:not(:hover) {
-            .title {
-                color: @modified;
-            }
+        &.modified:hover,
+        &.modified:not(:hover) {
+            color: @modified;
         }
 
         .close-icon {
             cursor: pointer;
             visibility: hidden;
+        }
 
-            &::before {
-                content: '\E5CD';
-                font-family: 'Material Icons';
-                visibility: visible;
-                color: @text-color;
-                width: 1rem;
-                height: 1rem;
-                line-height: 1;
-                text-align: center;
-                font-size: 1rem;
-                right: 0.75rem;
-                top: 1rem;
-                padding: 0;
-                cursor: pointer;
-                transition: transform 250ms @timing-function;
-                transform: scale(0);
-            }
-
-            &.active {
-            color: @text-color;
-            }
-
-            &:hover  {
-                visibility: visible;
-                color: @hover;
-            }
-
-            &:hover .modified  {
-                visibility: visible;
-                color: @modified;
+        &:hover .close-icon {
+            visibility: visible;
+            color: @hover;
+            &:before {
+              font-size: .9rem;
+              line-height: 1rem;
+              width: 1rem;
+              height: 1rem;
             }
         }
-    }
 
+        &.active {
+            color: @text-color;
+        }
+
+        &.modified,
+        &.modified:hover,
+        &.modified:not(:hover) {
+            color: @modified;
+        }
+    }
 
     .ink {
         display: none;
@@ -139,33 +130,29 @@
         z-index: 0;
         color: @text-color;
         width: inherit;
+        background: @primary-hue;
+        .border-radius (.4rem, .4rem, .0rem, .0rem);
+
         &:hover{
             color: @text-color;
         }
         .close-icon {
             visibility: visible;
             color: @text-color;
-        }
-        &,
-        &:before,
-        &:after {
-            font-weight: 600;
-            background: @primary-hue;
-            .border-radius (.4rem, .4rem, .0rem, .0rem);
+
+            &:before {
+              font-size: .9rem;
+              line-height: 1rem;
+              width: 1rem;
+              height: 1rem;
+            }
         }
     }
 
     .tab:hover {
-        font-weight: 600;
         color: @primary-hue;
     }
 
-    .tab.active:hover .close-icon {
-        color: @text-color;
-        &:hover {
-            color: @text-color;
-        }
-    }
 
     .placeholder {
         margin: 0;
