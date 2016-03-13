@@ -82,6 +82,9 @@
             }
         }
 
+        &:hover .title {
+            -webkit-mask-position: -@ui-size 0;
+        }
         &.modified,
         &.modified:hover,
         &.modified:not(:hover) {
@@ -89,6 +92,11 @@
         }
 
         .close-icon {
+            right: 0;
+            height: auto;
+            z-index: 2;
+            text-align: center;
+            line-height: normal;
             cursor: pointer;
             visibility: hidden;
         }
@@ -97,7 +105,7 @@
             visibility: visible;
             color: @hover;
             &:before {
-              font-size: .9rem;
+              font-size: 1rem;
               line-height: 1rem;
               width: 1rem;
               height: 1rem;
@@ -153,7 +161,6 @@
         color: @primary-hue;
     }
 
-
     .placeholder {
         margin: 0;
         height: 3rem;
@@ -174,38 +181,6 @@
             border-style: solid;
             border-width: 0 0.5rem 0.5rem 0.5rem;
             border-color: transparent transparent @base-color transparent;
-        }
-    }
-
-    .tab {
-        color: @accent-text-color;
-
-        &::before {
-            background-color: @accent-color;
-        }
-
-        &.modified:not(:hover) .close-icon {
-            border-color: @accent-color;
-        }
-
-        &.is-dragging {
-            background-color: @base-color;
-        }
-    }
-
-    &.modified:not(:hover) .close-icon {
-        border-color: @accent-text-color;
-    }
-
-    .ink {
-        background-color: fade(@accent-text-color, 25%);
-    }
-
-    .placeholder {
-        border-color: fade(@accent-color, 50%);
-
-        &::after {
-            border-color: transparent transparent @accent-color transparent;
         }
     }
 }

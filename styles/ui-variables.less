@@ -1,13 +1,11 @@
 @import "colors";
 @import "syntax-variables";
 
-// Colors
-@app-background-color: @syntax-background-color;
-@accent-color: @syntax-text-color;
-@accent-text-color: darken(@accent-color, 25%);
 
+// Official variables - these variables must be defined in every theme
+
+// Text
 @text-color: @syntax-text-color;
-@text-color-dark: darken(@text-color, 10%);
 @text-color-subtle: fade(@text-color, 50%);
 @text-color-highlight: fade(@text-color, 60%);
 @text-color-selected: @text-color-highlight;
@@ -17,21 +15,22 @@
 @text-color-warning: @modified;
 @text-color-error: @removed;
 
-@text-color-ignored: @ignored;
-@text-color-added: @added;
-@text-color-renamed: @renamed;
-@text-color-modified: @modified;
-@text-color-removed: @removed;
-
+// Background
 @background-color-info: lighten(@text-color-info, 25%);
 @background-color-success: lighten(@text-color-success, 25%);
 @background-color-warning: lighten(@text-color-warning, 25%);
 @background-color-error: lighten(@text-color-error, 25%);
-@background-color-highlight: fade(@base-color, 10%);
 
+@background-color-highlight: fade(@base-color, 10%);
+@background-color-selected: @base-color;
+
+@app-background-color: @syntax-background-color;
+
+// Base
 @base-background-color: transparent;
 @base-border-color: fade(black, 1%);
 
+// Componets
 @pane-item-background-color: @app-background-color;
 @pane-item-border-color: fade(black, 1%);
 
@@ -60,13 +59,9 @@
 @tab-background-color: @app-background-color;
 @tab-background-color-active: @app-background-color;
 @tab-border-color: transparent;
-@tab-bar-bottom-border-color: @primary-hue;
 
 @tree-view-background-color: @app-background-color;
 @tree-view-border-color: @tool-panel-border-color;
-
-@scrollbar-background-color: @app-background-color;
-@scrollbar-color: fade(@text-color, 20%);
 
 @ui-site-color-1: @background-color-success;
 @ui-site-color-2: @background-color-info;
@@ -85,19 +80,15 @@
 @component-line-height: 25px;
 @component-border-radius: 0px;
 
-//Tabs
-@tab-height: 2.5rem;
-@modified-icon-width: 8px;
-@tab-skew: 30deg;
-@tab-top-padding: 2px;
-@tab-bottom-border-height: 3px;
-@tab-max-width: 12rem;
-@tab-min-width: 7rem;
-// Other
+@tab-height: 2rem;
+
+// Font
 @font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
 
+
+// Custom variables - these variables are only used in this theme
+
 // Accent Colors
-@background-color-selected: @base-color;
 @timing-function: cubic-bezier(.4, 0, .2, 1);
 
 // These are default values
@@ -105,3 +96,41 @@
 @accent-text-color: lighten(@base-color, 60%);
 @base-color: @primary-hue;
 @hover: @primary-hue;
+
+// Colors
+@accent-color: @syntax-text-color;
+@accent-text-color: darken(@accent-color, 25%);
+
+@text-color-dark: darken(@text-color, 10%);
+
+@text-color-ignored: @ignored;
+@text-color-added: @added;
+@text-color-renamed: @renamed;
+@text-color-modified: @modified;
+@text-color-removed: @removed;
+
+@base-background-color: transparent;
+@base-border-color: fade(black, 1%);
+
+@tab-bar-bottom-border-color: @primary-hue;
+
+@scrollbar-background-color: @app-background-color;
+@scrollbar-color: fade(@text-color, 20%);
+
+//Tabs
+@modified-icon-width: 8px;
+@tab-skew: 30deg;
+@tab-top-padding: 2px;
+@tab-bottom-border-height: 3px;
+@tab-max-width: 12rem;
+@tab-min-width: 7rem;
+@tab-border-size: 1px;
+
+// Sizes (Custom) - (Have not redone!!)
+@ui-size: 1em;
+@ui-input-size: 12px;
+@ui-padding: @ui-size*1.5;
+@ui-padding-pane: @ui-size*.5;
+@ui-padding-icon: @ui-padding/3.3;
+@ui-line-height: @ui-size*2;
+@ui-tab-height: 45px;
