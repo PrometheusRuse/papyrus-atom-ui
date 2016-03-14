@@ -55,7 +55,6 @@
 
 .list-group .icon,
 .list-tree .icon {
-   display: inline-block;
    height: inherit;
    &::before {
    top: initial;
@@ -135,15 +134,6 @@
    font-size: .9rem;
     &.selected {
       color: @text-color;
-
-      &:before {
-        background: @app-background-color;
-        width: .125rem;
-        left: .125rem;
-        transform: scaleY(.78);
-
-      }
-
       &:hover .icon {
         color: inherit;
       }
