@@ -38,19 +38,7 @@ status-bar {
         background-color: lighten(@app-background-color, 3%);
     }
 }
-kbd {
-    background: fade(@text-color, 50%);
-    color: @app-background-color;
-    letter-spacing: 0.125rem;
 
-    .selected & {
-        background: fade(@accent-text-color, 70%);
-        color: @base-color;
-    }
-    + kbd {
-        margin-left: 0.5rem;
-    }
-}
 
 // Animations Override
 atom-workspace:not(.use-animations) {
