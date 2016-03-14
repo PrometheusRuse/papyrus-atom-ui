@@ -13,14 +13,13 @@
       &:first-child {
          padding-top: 1.25rem;
       }
-      &:before {
-         background-clip: padding-box;
-      }
       & > .header .name {
          letter-spacing: 0.04rem;
          font-weight: 700;
          font-size: 1.25rem;
-         color: @base-color;
+               color: @primary-hue;
+
+
       }
    }
 
@@ -78,15 +77,9 @@
    .icon-file-directory {
    font-weight: 600;
    position: relative;
-   &:before {
-      &:extend(.material-icon);
-         content: '\E2C7';
-         display: inline-block;
-         font-size: 1.187rem;
-         margin-right: .562rem;
 
-      }
    }
+
 
   &.has-collapsable-children .list-nested-item {
      &, &.collapsed {
@@ -98,6 +91,7 @@
   }
 
 
+
    .icon-repo,
    .icon-file-directory {
       &:before {
@@ -106,6 +100,8 @@
       }
    }
 }
+
+
 
 .list-tree {
    .selected-item {
@@ -137,9 +133,7 @@
       &:hover .icon {
         color: inherit;
       }
-
     }
-
 
     &.file {
       font-size: .75rem;
@@ -151,24 +145,14 @@
 
   }
 
-
   .directory > .list-item > .icon:hover {
      color: @primary-hue;
-
      &:before {
       opacity: 1;
      }
-
   }
- }
-  .directory.expanded > .list-item > .icon {
-    color: @text-color;
+}
 
-    &:before {
-      opacity: 1;
-    }
-
-  }
 
 
 
@@ -190,17 +174,16 @@
 
   }
 
-  .icon-repo,
+
   .icon-file-directory {
     position: relative;
-
     &:after {
       content: '';
       display: block;
       top: .5625rem;
       left: .25rem;
       width: .8125rem;
-      height: .5rem;
+      height: .45rem;
       background: @app-background-color;
       position: absolute;
       transition: transform 100ms;
