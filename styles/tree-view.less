@@ -73,6 +73,10 @@
    .icon-file-directory {
       font-weight: 600;
       position: relative;
+
+      &:before {
+         vertical-align: middle;
+      }
    }
 
    &.has-collapsable-children .list-nested-item {
@@ -83,10 +87,14 @@
       }
    }
 
-   .icon-repo,
-   .icon-file-directory {
+   .icon-repo {
+
       &:before {
          vertical-align: middle;
+         .icon:before {
+            margin-right: .5rem;
+            width: 1rem;
+         }
       }
    }
 }
