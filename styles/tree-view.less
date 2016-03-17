@@ -8,47 +8,124 @@
    background: @tree-view-background-color;
    padding-left: 1.75rem;
    padding-bottom: 1.75rem;
+   overflow: hidden;
 
-   .project-root.project-root {
+   .project-root {
+     padding: 0;
+     transform: translate3d(0,0,0);
+   }
 
-      &:first-child {
-         padding-top: 1.25rem;
-      }
-
-      & > .header .name {
+   .project-root {
+      > .header {
          line-height: 2.5rem;
          letter-spacing: 0.04rem;
          font-weight: 700;
          font-size: 1.25rem;
          color: @primary-hue;
+         z-index: 1000;
+
+         span, &::before {
+            line-height: 2.5rem;
+         }
+     }
+   }
+
+   .name.icon {
+      &.icon-repo::before {
+         font-size: 2rem;
+         margin-right: 1rem;
+      }
+   }
+
+   .icon-file-directory {
+      position: relative;
+
+      &:after {
+         content: '';
+         display: block;
+         top: .5625rem;
+         left: .25rem;
+         width: .8125rem;
+         height: .45rem;
+         background: @app-background-color;
+         position: absolute;
+         transition: transform 100ms;
+         transform: scale(0);
+      }
+   }
+
+   .entry.expanded {
+      > .list-item > .icon:after {
+         transition: transform 250ms;
+         transform: scale(1.05);
+      }
+   }
+
+   li {
+      padding: 0 0.5rem;
+   }
+
+   li.directory.selected > .list-item {
+      position: relative;
+
+      &::after {
+         .selected-item;
+      }
+   }
+
+   li.directory.selected {
+      > .list-item {
+         color: @accent-hue;
+         &::after {
+            background-color: @base-color;
+         }
       }
 
-      > .list-item > .icon-repo {
-         &:before {
-           font-size: 2rem;
+      &.status-modified > .list-item {
+            color: @base-color;
+
+         &::after {
+            background-color: @modified;
+         }
+      }
+
+      &.status-added > .list-item {
+         color: @accent-hue;
+
+         &::after {
+            background-color: @added;
+         }
+      }
+
+      &.status-renamed > .list-item {
+         color: @accent-hue;
+
+         &::after {
+            background-color: @renamed;
+         }
+      }
+
+      &.status-removed > .list-item {
+         color: @accent-hue;
+
+         &::after {
+            background-color: @removed;
          }
       }
    }
-}
 
-.tree-view-resizer {
-   min-width: 17.5rem;
 
-   .tree-view-resize-handle {
-      width: .5rem;
+
+
+
+   &.has-collapsable-children .list-nested-item > .list-item::before {
+      z-index: 10;
    }
-}
 
-.list-group li:not(.list-nested-item),
-.list-tree li:not(.list-nested-item),
-.list-group li.list-nested-item > .list-item,
-.list-tree li.list-nested-item > .list-item {
-   line-height: @tree-view-height;
-}
-
-.list-group .selected::before,
-.list-tree .selected::before {
-   height: @tree-view-height;
+   .name.icon::before {
+      margin-right: .5rem;
+      width: 1.31rem;
+   }
 }
 
 .list-group .icon,
@@ -72,62 +149,7 @@
 
 .list-tree {
 
-   .icon:before {
-      margin-right: .5rem;
-      width: 1.31rem;
-   }
 
-   .icon-file-directory {
-      font-weight: 600;
-      position: relative;
-
-      &:before {
-         vertical-align: middle;
-      }
-   }
-
-   &.has-collapsable-children .list-nested-item {
-      &, &.collapsed {
-         & > .list-item::before {
-            display: none;
-         }
-      }
-   }
-
-   .icon-repo {
-
-      &:before {
-         vertical-align: middle;
-         .icon:before {
-            margin-right: .5rem;
-            width: 1rem;
-         }
-      }
-   }
-}
-
-.list-tree {
-   .selected-item {
-      color: inherit;
-   }
-
-   .expanded {
-      color: @text-color;
-   }
-
-   .file:hover .icon {
-      color: @primary-hue;
-   }
-
-   .status-modified {
-      > .list-item,
-      > span {
-         color: @modified !important;
-      }
-   }
-
-   .list-nested-item {
-   }
 
    .list-item, .list-nested-item {
       font-size: .9rem;
@@ -156,72 +178,39 @@
          opacity: 1;
       }
    }
-}
 
-.tree-view {
-
-   .directory {
-      overflow: hidden;
-
-      > .header {
-         background: @app-background-color;
-         z-index: 100;
-         position: relative;
-      }
-   }
-
-   > .directory > .header > .icon:after {
-      left: .1875rem;
+   .icon:before {
+      margin-right: .5rem;
+      width: 1.31rem;
    }
 
    .icon-file-directory {
+      font-weight: 600;
       position: relative;
 
-      &:after {
-         content: '';
-         display: block;
-         top: .5625rem;
-         left: .25rem;
-         width: .8125rem;
-         height: .45rem;
-         background: @app-background-color;
-         position: absolute;
-         transition: transform 100ms;
-         transform: scale(0);
+      &:before {
+         vertical-align: middle;
       }
    }
 
-   .project-root > .list-item .icon {
-      &:after {
-         top: .5625rem;
+   .icon-repo {
+
+      &:before {
+         vertical-align: middle;
+         .icon:before {
+            margin-right: .5rem;
+            width: 1rem;
+         }
       }
    }
 
-   .entry.expanded {
-      > .list-item > .icon:after {
-         transition: transform 250ms;
-         transform: scale(1.05);
+   &.has-collapsable-children .list-nested-item {
+      &, &.collapsed {
+         & > .list-item::before {
+            display: none;
+         }
       }
    }
 
-   .entry.expanded > .entries {
-      -webkit-animation: tree-view-expanded .3s ease;
-      z-index: 10;
 
-      &:empty {
-         display: none;
-      }
-   }
-
-   @keyframes tree-view-expanded {
-      0% {
-         opacity: 0;
-         margin-top: -10px;
-      }
-
-      100% {
-         opacity: 1;
-         margin-top: 0;
-      }
-   }
 }
